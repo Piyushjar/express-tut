@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const multer = require('multer');
 
 const app = express(); 
 app.use(express.json());
@@ -18,7 +19,9 @@ mongoose.connect(DB,{
 });
 
 app.use('/api/user',router);
-   
+app.use('/api',router);
+
+
 const port=4500;
 app.listen(port,()=>{
     console.log(`App listening on ${port}`);
